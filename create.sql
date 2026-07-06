@@ -4,11 +4,11 @@ USE lab_mysql;
 
 DROP TABLE IF EXISTS customers;
 CREATE TABLE customers (ID INT PRIMARY KEY AUTO_INCREMENT, 
-						customer_id VARCHAR(50) NOT NULL,
+						customer_id VARCHAR(50) NOT NULL UNIQUE,
 						cust_name VARCHAR(50) NOT NULL,
                         cust_phone_number VARCHAR(50) NOT NULL,
                         cust_email VARCHAR(50),
-                        cust_address VARCHAR(50),
+                        cust_address VARCHAR(100),
                         cust_city VARCHAR(50),
                         cust_state_province VARCHAR(50),
                         cust_country VARCHAR(50),
@@ -30,7 +30,7 @@ CREATE TABLE salespersons (ID INT PRIMARY KEY AUTO_INCREMENT,
                             
 DROP TABLE IF EXISTS invoices;
 CREATE TABLE invoices (ID INT PRIMARY KEY AUTO_INCREMENT,
-						invoice_number VARCHAR(50) NOT NULL,
+						invoice_number VARCHAR(50) NOT NULL UNIQUE,
 						invoice_date DATE NOT NULL,
                         car_ID_fk INT NOT NULL,
                         customer_ID_fk INT NOT NULL,
